@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UPI Payment</title>
+   <style>
+        body{
+            font-family:Arial;
+            text-align:center;
+            background:#f4f6f9;
+            padding:40px;
+        }
+        .box{
+            background:white;
+            width:400px;
+            margin:auto;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 2px 10px rgba(0,0,0,0.2);
+        }
+        img{
+            width:250px;
+            margin-top:20px;
+        }
+        button{
+            background-color: cornsilk;
+            color: crimson;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h2>Scan & Pay</h2>
+    <h3>Original Amount : ₹{{ amount }}</h3>
+    <h3>Fine : ₹{{ fine_amount }}</h3>
+    <h2>Total Payable : ₹{{ total_amount }}</h2>
+    
+    <img src="data:image/png;base64,{{ qr_code }}">
+    <p>
+        House : {{ house.house_no }}
+    </p>
+    <a href="{% url 'payment_success' %}">
+            <button> Confirm Payment</button>
+    </a>
+</div>
+</body>
+</html>
