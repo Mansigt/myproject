@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>house report</title>
+    </head>
+    <style>
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+        table th{
+            background:#2563eb;
+            color:white;
+            padding:12px;
+            text-align:left;
+        }
+        table td{
+            padding:12px;
+            border-bottom:1px solid #ddd;}
+    </style>
+    <body>
+        <h1>House Resident Report</h1>
+    <table border="1">
+<tr>
+    <th>House</th>
+    <th>Owner</th>
+    <th>Contact</th>
+    <th>Residents</th>
+</tr>
+
+{% for item in data %}
+<tr>
+    <td>{{ item.house_no }}</td>
+    <td>{{ item.owner_name }}</td>
+    <td>{{ item.owner_contact }}</td>
+    <td>
+        {% for resident in item.residents %}
+            {{ resident }}<br>
+        {% endfor %}
+    </td>
+</tr>
+{% endfor %}
+</table>
+    </body>
+</html>
